@@ -44,3 +44,11 @@ both using `***` i.e. ***very emph***
 >they would be in email `>` and `>>`
 >>and can be nested
 >>
+
+## How Math Works
+
+Like $a+b=3$ in Tex, also with
+$$
+\int f(x) dx = 2\pi i
+$$
+multiline support!
