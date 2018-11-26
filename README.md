@@ -1,3 +1,8 @@
+Title: Some Stuff by Anton  
+Date: 2018-11-26  
+Autor: Anton Rechenauer  
+Keywords: Notes, Infos, Stuff  
+
 # markdowns
 
 ## Goal
@@ -23,6 +28,15 @@ boldface by `**` for example **this** is bold
 
 both using `***` i.e. ***very emph***
 
+sepline `- - -` or `---` or `___`
+- - -
+three 
+___
+stars
+* * *
+
+it is possible `[^to use footnotes]` by [^using this]
+
 ## md lists
 
 + using `+-*` and a blank
@@ -37,8 +51,8 @@ both using `***` i.e. ***very emph***
 * thirdstar
 
 1. alpha numbers, just use them
-1. beta
-1. gamma
+2. beta
+3. gamma
 
 >quotes are done just like
 >they would be in email `>` and `>>`
@@ -53,3 +67,10 @@ $$
 $$
 multiline support (doesn't work in GitHub, meh)!
 But maybe...
+
+## Tables
+
+| Col1 | Col2 | Col3
+| :--- |:---  |:----
+|Eins|Zwei|Drei
+|auch | verbunden ||
