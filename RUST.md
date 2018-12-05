@@ -20,6 +20,12 @@ Rust uses a simple directory layout (source files are in `src`)
 
 Configuration is in `Cargo.toml`
 
+Command line arguments in `std::env::args`
+
+Results are `OK(value)` or `Err(e)`, just use `unwrap()` to panic if something is wrong
+
+To bring names into scope, use `use`
+
 ## Variables
 
 `let variable_name:Type = ...` is the standard way to bind a name to a value
@@ -36,6 +42,9 @@ Configuration is in `Cargo.toml`
 
 `loop` is infinite, has to have a `break`
 
+blocks `{}` are values, the last expression should have no `;`
+
+statements are terminated by `;`, they don't have a value
 
 ## Functions
 
@@ -47,9 +56,20 @@ fn tolstoi (arg:Type, arg2:Type) -> ResultType {
 typically the last expression isn't followed by an `;`, in this case it is the result.
 
 
-## md1
+## Macros
 
-section seperated by empty lines
+can be recognized by `!` at the end of the name `println!`, `assert!`
+
+## Attributes=Annotations
+```
+#[test] 
+fn test_this(){
+    assert_eq!(1,1);
+}
+```
+can be used, in this case a unit test (typically in the same source)
+
+
 
 two spaces generate line break  
 before the next line
