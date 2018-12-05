@@ -1,12 +1,51 @@
-# markdowns
+# Rust
 
-## Goal
+## General stuff
 
-collect writeups, notes, stuff
+Tools: rustc, rustup, cargo, rustfmt,...
 
-## Why
+Rust uses snake_case_format
 
-because everything is so fragmented
+Rust uses 4-space indent
+
+Create a new runable with `cargo new --bin name_of_prj`
+
+Create a new library with `cargo new --lib name_of_lib`
+
+If directory already exists, use `init` instead of `new`
+
+`cargo run` builds an runs a binary app
+
+Rust uses a simple directory layout (source files are in `src`)
+
+Configuration is in `Cargo.toml`
+
+## Variables
+
+`let variable_name:Type = ...` is the standard way to bind a name to a value
+
+`let mut variable_name:Type = ...` creates something mutable
+
+## Expressions
+
+`while` as usual
+
+`for x in iter` as usual, for arrays create an iterator with `.iter()`
+
+`if cond {} else {}` has no `(...)` for condition, it is an *expression* with a value
+
+`loop` is infinite, has to have a `break`
+
+
+## Functions
+
+```
+fn tolstoi (arg:Type, arg2:Type) -> ResultType {
+
+}
+```
+typically the last expression isn't followed by an `;`, in this case it is the result.
+
 
 ## md1
 
