@@ -69,6 +69,18 @@ fn test_this(){
 ```
 can be used, in this case a unit test (typically in the same source)
 
+## Strings
+
+```
+    let mut s:String = "Hallo".to_string(); // String literals are refs, have to be converted?
+    let p:&str   = "Foo";
+```
+Hm, String literals are ref by nature!
+
+
+
+
+
 
 
 two spaces generate line break  
