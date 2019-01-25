@@ -14,7 +14,11 @@ Create a new library with `cargo new --lib name_of_lib`
 
 If directory already exists, use `init` instead of `new`
 
+`rustup update; cargo update`, important if nightly is used
+
 `cargo run` builds an runs a binary app
+
+shortcut `cargo b r t`...
 
 Rust uses a simple directory layout (source files are in `src`)
 
@@ -54,7 +58,7 @@ fn tolstoi (arg:Type, arg2:Type) -> ResultType {
 }
 ```
 typically the last expression isn't followed by an `;`, in this case it is the result.
-
+Think about the last semicolon in the function body!
 
 ## Macros
 
@@ -68,6 +72,8 @@ fn test_this(){
 }
 ```
 can be used, in this case a unit test (typically in the same source)
+also: annotate the module ```#[cfg(test)]```
+j
 
 ## Strings
 
@@ -77,6 +83,81 @@ can be used, in this case a unit test (typically in the same source)
 ```
 Hm, String literals are ref by nature!
 
+## Misc
+
+`use` only brings things into scope, does not include anything
+
+`let mut` und `let` assignment, also ownership implied, `const` for constants
+
+`for x in coll` for loop
+
+`std::env::args` is iterator for command line arguments
+
+`unwrap` means just panic if not ok
+
+`expect` also panics, but additional message
+
+`Result` is an enum with `Ok(x)` and `Err(e)` as values
+
+`&name` und `&mut name` just borrows, ownership untouched, deref with `*`
+
+method calls `o.meth()` automatically derefs
+
+raw string with `r#""#`
+
+serialization -> serde
+
+modules: careful `mod name` and `pub mod name`
+
+arrays `[1,2,3,4]` fixed length (at compile time!), fixed types, on the stack
+
+arrays index access `a[i]` is checked at runtime
+
+array init `[0;1000]` semicolon to seperate default value
+
+tuples `[1,"test"]` as usual, index starts with 0
+
+one element tuple with `(1,)` because otherwise evaluation with brackets
+
+every block has a value, if last expr doesn't have a semicolon
+
+`for n in 0..8` has 8 elements, makes easy slicing...
+
+`for x in xyz.iter()` often necessary
+
+use underscore `_` for unused values
+
+`format print write eprint` essentially the same (output varies)
+
+casting is done via `expr as i64` -> From trait
+
+a `?` inside a function body at a `Result<A,B>` return `Err(b)` at failure
+
+closures syntax is `|x|{ body }`, use `move` if capture owership necessary
+
+pattern matching in let statements `let (a,b) = fnreturnstuple();`, also for enums,..
+
+rust allows shadowing, i.e. reassignment -> do this if type changes (unproblematic)
+
+statement `let x=5;` has no value, contrast with expression -> a semicolon means something!
+
+flow `loop{}` and `while cond {}` and `for x in coll {}`
+
+slices have type `let x:&[T]=arr[0..n]`, always refs!
+
+(index,value) pairs can be created with `...iter().enumerate()`
+
+format for debugging with `{:?}`
+
+use the `vec![init;len]` macro to initialize a vector
+
+notice `&str` and `String` have no index acces (unicode), from `String` to `&str` automatically
+
+a `&str` is a `&[u8]`, but contains only valid codepoints
+
+collection `Vec<T>` allows slices, indexed access, etc.
+
+also HashMap, BTreeMap, Set, ...
 
 
 
