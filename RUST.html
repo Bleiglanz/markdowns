@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>RUST.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1>Rust</h1>
+
+<h2>General stuff</h2>
+
+<p>Tools: rustc, rustup, cargo, rustfmt,...</p>
+
+<p>Rust uses snake<em>case</em>format</p>
+
+<p>Rust uses 4-space indent</p>
+
+<p>Create a new runable with <code>cargo new --bin name_of_prj</code></p>
+
+<p>Create a new library with <code>cargo new --lib name_of_lib</code></p>
+
+<p>If directory already exists, use <code>init</code> instead of <code>new</code></p>
+
+<p><code>rustup update; cargo update</code>, important if nightly is used</p>
+
+<p><code>cargo run</code> builds an runs a binary app</p>
+
+<p>shortcut <code>cargo b r t</code>...</p>
+
+<p>Rust uses a simple directory layout (source files are in <code>src</code>)</p>
+
+<p>Configuration is in <code>Cargo.toml</code></p>
+
+<p>Command line arguments in <code>std::env::args</code></p>
+
+<p>Results are <code>OK(value)</code> or <code>Err(e)</code>, just use <code>unwrap()</code> to panic if something is wrong</p>
+
+<p>To bring names into scope, use <code>use</code></p>
+
+<h2>Variables</h2>
+
+<p><code>let variable_name:Type = ...</code> is the standard way to bind a name to a value</p>
+
+<p><code>let mut variable_name:Type = ...</code> creates something mutable</p>
+
+<h2>Expressions</h2>
+
+<p><code>while</code> as usual</p>
+
+<p><code>for x in iter</code> as usual, for arrays create an iterator with <code>.iter()</code></p>
+
+<p><code>if cond {} else {}</code> has no <code>(...)</code> for condition, it is an <em>expression</em> with a value</p>
+
+<p><code>loop</code> is infinite, has to have a <code>break</code></p>
+
+<p>blocks <code>{}</code> are values, the last expression should have no <code>;</code></p>
+
+<p>statements are terminated by <code>;</code>, they don't have a value</p>
+
+<h2>Functions</h2>
+
+<p>```
+fn tolstoi (arg:Type, arg2:Type) -> ResultType {</p>
+
+<p>}
+<code>``
+typically the last expression isn't followed by an</code>;`, in this case it is the result.
+Think about the last semicolon in the function body!</p>
+
+<h2>Macros</h2>
+
+<p>can be recognized by <code>!</code> at the end of the name <code>println!</code>, <code>assert!</code></p>
+
+<h2>Attributes=Annotations</h2>
+
+<p>```</p>
+
+<h1>[test]</h1>
+
+<p>fn test<em>this(){
+    assert</em>eq!(1,1);
+}
+<code>
+can be used, in this case a unit test (typically in the same source)
+also: annotate the module</code>#[cfg(test)]```
+j</p>
+
+<h2>Strings</h2>
+
+<p><code>
+    let mut s:String = "Hallo".to_string(); // String literals are refs, have to be converted?
+    let p:&amp;str   = "Foo";
+</code>
+Hm, String literals are ref by nature!</p>
+
+<h2>Misc</h2>
+
+<p><code>use</code> only brings things into scope, does not include anything</p>
+
+<p><code>let mut</code> und <code>let</code> assignment, also ownership implied, <code>const</code> for constants</p>
+
+<p><code>for x in coll</code> for loop</p>
+
+<p><code>std::env::args</code> is iterator for command line arguments</p>
+
+<p><code>unwrap</code> means just panic if not ok</p>
+
+<p><code>expect</code> also panics, but additional message</p>
+
+<p><code>Result</code> is an enum with <code>Ok(x)</code> and <code>Err(e)</code> as values</p>
+
+<p><code>&amp;name</code> und <code>&amp;mut name</code> just borrows, ownership untouched, deref with <code>*</code></p>
+
+<p>method calls <code>o.meth()</code> automatically derefs</p>
+
+<p>raw string with <code>r#""#</code></p>
+
+<p>serialization -> serde</p>
+
+<p>modules: careful <code>mod name</code> and <code>pub mod name</code></p>
+
+<p>arrays <code>[1,2,3,4]</code> fixed length (at compile time!), fixed types, on the stack</p>
+
+<p>arrays index access <code>a[i]</code> is checked at runtime</p>
+
+<p>array init <code>[0;1000]</code> semicolon to seperate default value</p>
+
+<p>tuples <code>[1,"test"]</code> as usual, index starts with 0</p>
+
+<p>one element tuple with <code>(1,)</code> because otherwise evaluation with brackets</p>
+
+<p>every block has a value, if last expr doesn't have a semicolon</p>
+
+<p><code>for n in 0..8</code> has 8 elements, makes easy slicing...</p>
+
+<p><code>for x in xyz.iter()</code> often necessary</p>
+
+<p>use underscore <code>_</code> for unused values</p>
+
+<p><code>format print write eprint</code> essentially the same (output varies)</p>
+
+<p>casting is done via <code>expr as i64</code> -> From trait</p>
+
+<p>a <code>?</code> inside a function body at a <code>Result&lt;A,B&gt;</code> return <code>Err(b)</code> at failure</p>
+
+<p>closures syntax is <code>|x|{ body }</code>, use <code>move</code> if capture owership necessary</p>
+
+<p>pattern matching in let statements <code>let (a,b) = fnreturnstuple();</code>, also for enums,..</p>
+
+<p>rust allows shadowing, i.e. reassignment -> do this if type changes (unproblematic)</p>
+
+<p>statement <code>let x=5;</code> has no value, contrast with expression -> a semicolon means something!</p>
+
+<p>flow <code>loop{}</code> and <code>while cond {}</code> and <code>for x in coll {}</code></p>
+
+<p>slices have type <code>let x:&amp;[T]=arr[0..n]</code>, always refs!</p>
+
+<p>(index,value) pairs can be created with <code>...iter().enumerate()</code></p>
+
+<p>format for debugging with <code>{:?}</code></p>
+
+<p>use the <code>vec![init;len]</code> macro to initialize a vector</p>
+
+<p>notice <code>&amp;str</code> and <code>String</code> have no index acces (unicode), from <code>String</code> to <code>&amp;str</code> automatically</p>
+
+<p>a <code>&amp;str</code> is a <code>&amp;[u8]</code>, but contains only valid codepoints</p>
+
+<p>collection <code>Vec&lt;T&gt;</code> allows slices, indexed access, etc.</p>
+
+<p>also HashMap, BTreeMap, Set, ...</p>
+
+<p><code>coll.iter()</code> returns an iterator, is lazy (does nothing) - iterator has essentially one method: <code>next</code></p>
+
+<p>two spaces generate line break <br />
+before the next line</p>
+
+<p>headings #, ##, ### and so on, or underline ====</p>
+
+<p>italics by <code>*</code> for example <em>this</em> is slanted</p>
+
+<p>boldface by <code>**</code> for example <strong>this</strong> is bold</p>
+
+<p>both using <code>***</code> i.e. <strong><em>very emph</em></strong></p>
+
+<h2>md lists</h2>
+
+<ul>
+<li>using <code>+-*</code> and a blank</li>
+<li>nextplus
+<ul>
+<li>deep</li>
+<li>down</li>
+<li>nested using two blanks</li>
+</ul></li>
+<li><p>anotherplus</p></li>
+<li><p>firststar</p></li>
+<li>secondstar</li>
+<li><p>thirdstar</p></li>
+<li><p>alpha numbers, just use them</p></li>
+<li>beta</li>
+<li>gamma</li>
+</ul>
+
+<blockquote>
+  <p>quotes are done just like
+they would be in email <code>&gt;</code> and <code>&gt;&gt;</code></p>
+
+<blockquote>
+  <p>and can be nested</p>
+</blockquote>
+
+<p></blockquote></p>
+
+</body>
+</html>

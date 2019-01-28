@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Rust
 
 ## General stuff
@@ -158,6 +174,13 @@ a `&str` is a `&[u8]`, but contains only valid codepoints
 collection `Vec<T>` allows slices, indexed access, etc.
 
 also HashMap, BTreeMap, Set, ...
+
+`coll.iter()` returns an iterator, is lazy (does nothing) - iterator has essentially one method: `next`
+
+standard: `coll.iter().map().filter().collect()` everything is lazy, call collect at last
+
+
+
 
 
 
